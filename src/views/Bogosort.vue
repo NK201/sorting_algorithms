@@ -1,10 +1,17 @@
 <template>
-  <div class="test">
-    <h1>Random BarChart Test</h1>
-    <h3>Test to play with BarCharts. Click to Randomize the Data.</h3>
+  <div class="bogosort">
+    <h1>Bogosort aka Monkeysort aka Stupidsort</h1>
+    <h3>Die Elemente werden in einem Array so lange gemischt bis sie zufällig sortiert sind.</h3>
 
     <button @click="randomize()">Randomize Data</button>
-    <bar-chart :chart-data="datacollection"></bar-chart>
+    <p>
+      Ist sortiert?
+      <checkbox/>
+    </p>
+
+    <div class="chart">
+      <bar-chart :chart-data="datacollection"></bar-chart>
+    </div>
   </div>
 </template>
 
@@ -58,4 +65,9 @@ export default {
 </script>
 
 <style scoped>
+div.chart {
+  max-width: 700px;
+  max-height: 700px;
+  margin: auto;
+}
 </style>

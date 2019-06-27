@@ -5,7 +5,9 @@
     <h3>Erster Test mit Visualisierungen</h3>
 
     <button @click="randomizeData()">Randomize Data</button>
-    <bar-chart :chart-data="datacollection"></bar-chart>
+    <div class="chart">
+      <bar-chart :chart-data="datacollection"></bar-chart>
+    </div>
   </div>
 </template>
 
@@ -79,4 +81,9 @@ export default {
 </script>
 
 <style scoped>
+div.chart {
+  max-width: 700px;
+  max-height: 700px;
+  margin: auto;
+}
 </style>
