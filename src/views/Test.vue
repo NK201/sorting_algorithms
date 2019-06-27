@@ -1,9 +1,9 @@
 <template>
   <div class="test">
-    <h1>Test</h1>
-    <h3>TEST TEST TEST</h3>
+    <h1>Random BarChart Test</h1>
+    <h3>Test to play with BarCharts. Click to Randomize the Data.</h3>
 
-    <button @click="randomize()">Test</button>
+    <button @click="randomize()">Randomize Data</button>
     <bar-chart :chart-data="datacollection"></bar-chart>
   </div>
 </template>
@@ -31,12 +31,12 @@ export default {
         datasets: [
           {
             label: "Data One",
-            backgroundColor: "#f87979",
+            backgroundColor: this.getRandomColor(),
             data: [this.getRandomInt(), this.getRandomInt()]
           },
           {
             label: "Data One",
-            backgroundColor: "#f87979",
+            backgroundColor: this.getRandomColor(),
             data: [this.getRandomInt(), this.getRandomInt()]
           }
         ]
@@ -44,14 +44,18 @@ export default {
     },
     getRandomInt() {
       return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
+    },
+    getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
     }
   }
 };
 </script>
 
 <style scoped>
-/* .test {
-  max-width: 600px;
-  margin: 150px auto;
-} */
 </style>

@@ -5,22 +5,29 @@
     <h3>Erster Test mit Visualisierungen</h3>
 
     <button @click="randomizeData()">Randomize Data</button>
-    <Bubblesort_visualisation></Bubblesort_visualisation>
+    <bar-chart :chart-data="datacollection"></bar-chart>
   </div>
 </template>
 
 
   <script>
-/* eslint-disable */
-import Bubblesort_visualisation from "../components/Bubblesort_visualisation.vue";
+import BarChart from "../BarChart.vue";
 
 export default {
-  name: "bubblesort",
   components: {
-    Bubblesort_visualisation
+    BarChart
+  },
+  data() {
+    return {
+      datacollection: null
+    };
+  },
+  mounted() {
+    this.randomizeData();
   },
   methods: {
     randomizeData() {
+      console.log("randomize data - Bubblesort - pressed");
       this.datacollection = {
         labels: [
           "1",
@@ -53,36 +60,19 @@ export default {
           {
             label: "Test-Algorithmus",
             backgroundColor: "#999",
-            data: [
-              1,
-              22,
-              8,
-              4,
-              5,
-              6,
-              17,
-              4,
-              9,
-              10,
-              17,
-              12,
-              3,
-              5,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              12,
-              22,
-              23,
-              15,
-              19
-            ]
+            data: this.getRandomArray()
           }
         ]
       };
+    },
+    getRandomArray() {
+      var arr = [];
+      for (var i = 0; i < 25; i++) {
+        var random = Math.floor(Math.random() * 25);
+        arr.push(random);
+      }
+      console.log(arr);
+      return arr;
     }
   }
 };
