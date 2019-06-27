@@ -50,22 +50,22 @@ export default {
         ],
         datasets: [
           {
-            label: "Bubblesort-Algorithmus",
+            label: "Test-Algorithmus",
             backgroundColor: "#999",
             data: [
               1,
-              2,
+              22,
               8,
               4,
               5,
               6,
-              7,
-              8,
+              17,
+              4,
               9,
               10,
-              11,
+              17,
               12,
-              13,
+              3,
               5,
               15,
               16,
@@ -73,11 +73,11 @@ export default {
               18,
               19,
               20,
-              21,
+              12,
               22,
               23,
-              24,
-              25
+              15,
+              19
             ]
           }
         ]

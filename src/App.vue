@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/bubblesort">Bubblesort</router-link>|
-      <router-link to="/WIP">WIP</router-link>|
+      <router-link to="/test">Test</router-link>|
       <router-link to="/WIP">WIP</router-link>|
       <router-link to="/WIP">WIP</router-link>|
       <router-link to="/WIP">WIP</router-link>|

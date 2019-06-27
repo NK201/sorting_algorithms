@@ -1,23 +1,23 @@
 <template>
   <div class="bubblesort">
-    <h1>Bubblesort</h1>
+    <h1>Test</h1>
 
-    <h3>Erster Test mit Visualisierungen</h3>
+    <h3>TESTTESTTEST</h3>
 
     <button @click="fillData()">Randomize Data</button>
-    <Bubblesort_visualisation></Bubblesort_visualisation>
+    <Test_visualisation></Test_visualisation>
   </div>
 </template>
 
 
   <script>
 /* eslint-disable */
-import Bubblesort_visualisation from "../components/Bubblesort_visualisation.vue";
+import Test_visualisation from "../components/Test_visualisation.vue";
 
 export default {
-  name: "bubblesort",
+  name: "test",
   components: {
-    Bubblesort_visualisation
+    Test_visualisation
   },
   methods: {
     fillData() {
