@@ -1,31 +1,57 @@
 <template>
-  <div class="bubblesort">
+  <div class="test">
     <h1>Test</h1>
+    <h3>TEST TEST TEST</h3>
 
-    <h3>TESTTESTTEST</h3>
-
-    <button @click="fillData()">Randomize Data</button>
-    <Test_visualisation></Test_visualisation>
+    <button @click="randomize()">Test</button>
+    <bar-chart :chart-data="datacollection"></bar-chart>
   </div>
 </template>
 
 
   <script>
-/* eslint-disable */
-import Test_visualisation from "../components/Test_visualisation.vue";
+import BarChart from "../BarChart.vue";
 
 export default {
-  name: "test",
   components: {
-    Test_visualisation
+    BarChart
+  },
+  data() {
+    return {
+      datacollection: null
+    };
+  },
+  mounted() {
+    this.randomize();
   },
   methods: {
-    fillData() {
-      this.datacollection = {};
+    randomize() {
+      this.datacollection = {
+        labels: [this.getRandomInt(), this.getRandomInt()],
+        datasets: [
+          {
+            label: "Data One",
+            backgroundColor: "#f87979",
+            data: [this.getRandomInt(), this.getRandomInt()]
+          },
+          {
+            label: "Data One",
+            backgroundColor: "#f87979",
+            data: [this.getRandomInt(), this.getRandomInt()]
+          }
+        ]
+      };
+    },
+    getRandomInt() {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   }
 };
 </script>
 
 <style scoped>
+/* .test {
+  max-width: 600px;
+  margin: 150px auto;
+} */
 </style>

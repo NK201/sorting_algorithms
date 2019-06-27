@@ -4,7 +4,7 @@
 
     <h3>Erster Test mit Visualisierungen</h3>
 
-    <button @click="fillData()">Randomize Data</button>
+    <button @click="randomizeData()">Randomize Data</button>
     <Bubblesort_visualisation></Bubblesort_visualisation>
   </div>
 </template>
@@ -20,8 +20,69 @@ export default {
     Bubblesort_visualisation
   },
   methods: {
-    fillData() {
-      this.datacollection = {};
+    randomizeData() {
+      this.datacollection = {
+        labels: [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25"
+        ],
+        datasets: [
+          {
+            label: "Test-Algorithmus",
+            backgroundColor: "#999",
+            data: [
+              1,
+              22,
+              8,
+              4,
+              5,
+              6,
+              17,
+              4,
+              9,
+              10,
+              17,
+              12,
+              3,
+              5,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              12,
+              22,
+              23,
+              15,
+              19
+            ]
+          }
+        ]
+      };
     }
   }
 };

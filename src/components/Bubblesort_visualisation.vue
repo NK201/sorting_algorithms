@@ -5,7 +5,7 @@
 
 
 <script>
-import Chart from "./../Chart.js";
+import Chart from "./../BarChart.vue";
 export default {
   components: {
     Chart
@@ -15,8 +15,12 @@ export default {
       datacollection: null
     };
   },
+  created() {
+    this.fillData();
+  },
   mounted() {
     this.fillData();
+    // this.renderChart(this.chartData, this.options);
   },
   methods: {
     fillData() {
