@@ -3,8 +3,6 @@
     <h1>Visualisierung von Such-Algorithmen mithilfe von Vue.js</h1>
     <ul class="list">
       <li>Bubblesort</li>
-      <li>Quicksort</li>
-      <li>Mergesort</li>
       <li>Randomsort</li>
     </ul>
   </div>
