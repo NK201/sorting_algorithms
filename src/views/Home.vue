@@ -19,7 +19,5 @@ export default {
 
 
 <style scoped>
-.list {
-}
 </style>
 
