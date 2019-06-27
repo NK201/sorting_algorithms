@@ -70,7 +70,7 @@ export default {
     getRandomArray() {
       var arr = [];
       for (var i = 0; i < 25; i++) {
-        var random = Math.floor(Math.random() * 25);
+        var random = Math.floor(Math.random() * 100);
         arr.push(random);
       }
       console.log(arr);

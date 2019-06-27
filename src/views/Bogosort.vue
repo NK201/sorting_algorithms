@@ -4,10 +4,11 @@
     <h3>Die Elemente werden in einem Array so lange gemischt bis sie zufällig sortiert sind.</h3>
 
     <button @click="randomize()">Randomize Data</button>
-    <p>
-      Ist sortiert?
-      <checkbox/>
-    </p>
+
+    <div class="sorted">
+      <br>
+      Sortiert == {{ sorted }}
+    </div>
 
     <div class="chart">
       <bar-chart :chart-data="datacollection"></bar-chart>
@@ -25,7 +26,8 @@ export default {
   },
   data() {
     return {
-      datacollection: null
+      datacollection: null,
+      sorted: false
     };
   },
   mounted() {
@@ -34,20 +36,16 @@ export default {
   methods: {
     randomize() {
       this.datacollection = {
-        labels: [this.getRandomInt(), this.getRandomInt()],
+        labels: ["1", "2", "3"],
         datasets: [
           {
-            label: "Data One",
+            label: "Bogosort",
             backgroundColor: this.getRandomColor(),
-            data: [this.getRandomInt(), this.getRandomInt()]
-          },
-          {
-            label: "Data One",
-            backgroundColor: this.getRandomColor(),
-            data: [this.getRandomInt(), this.getRandomInt()]
+            data: this.getRandomArray()
           }
         ]
       };
+      this.checkIfSorted();
     },
     getRandomInt() {
       return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
@@ -59,6 +57,34 @@ export default {
         color += letters[Math.floor(Math.random() * 16)];
       }
       return color;
+    },
+    getRandomArray() {
+      var arr = [];
+      for (var i = 0; i < 3; i++) {
+        var random = Math.floor(Math.random() * 100);
+        arr.push(random);
+      }
+      console.log(arr);
+      return arr;
+    },
+    checkIfSorted() {
+      // check if datacollection.data is sorted
+
+      var arrlength = this.datacollection.datasets[0].data.length;
+      var sorted = false;
+      for (var i = 0; i < arrlength; i++) {
+        if (
+          this.datacollection.datasets[0].data[i] >
+          this.datacollection.datasets[0].data[i + 1]
+        ) {
+          sorted = false;
+          break;
+        } else {
+          sorted = true;
+        }
+      }
+
+      this.sorted = sorted;
     }
   }
 };
