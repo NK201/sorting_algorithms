@@ -27,7 +27,8 @@ export default {
   data() {
     return {
       datacollection: null,
-      sorted: false
+      sorted: false,
+      arrSize: 4
     };
   },
   mounted() {
@@ -36,7 +37,7 @@ export default {
   methods: {
     randomize() {
       this.datacollection = {
-        labels: ["1", "2", "3"],
+        labels: ["1", "2", "3", "4"],
         datasets: [
           {
             label: "Bogosort",
@@ -60,7 +61,7 @@ export default {
     },
     getRandomArray() {
       var arr = [];
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < this.arrSize; i++) {
         var random = Math.floor(Math.random() * 100);
         arr.push(random);
       }
