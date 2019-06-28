@@ -62,6 +62,18 @@ export default {
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
 
+      this.datacollection = {
+        labels: ["1", "2", "3"],
+        datasets: [
+          {
+            label: "Bogosort",
+            backgroundColor: this.datacollection.datasets[0].backgroundColor,
+            data: arr
+          }
+        ]
+      };
+      this.checkIfSorted();
+
       console.log(this.datacollection.datasets[0].data);
 
       // update the chart
