@@ -4,7 +4,8 @@
     <h3>Die Elemente werden in einem Array so lange gemischt bis sie zufällig sortiert sind.</h3>
 
     <button @click="fillRandomData()">Randomize Data</button>
-    <button @click="shuffleData(datacollection.datasets[0].data)">Shuffle Data</button>
+    <button @click="shuffleData()">Shuffle Data</button>
+    <button @click="shuffleUntilSorted()">Sort it</button>
 
     <div class="sorted">
       <br>
@@ -42,9 +43,14 @@ export default {
     //   this.renderBarChart();
   },
   methods: {
+    shuffleUntilSorted() {
+      while (!this.sorted) {
+        this.shuffleData();
+      }
+    },
     fillRandomData() {
       this.datacollection = {
-        labels: ["1", "2", "3"],
+        labels: ["1", "2", "3", "4", "5"],
         datasets: [
           {
             label: "Bogosort",
@@ -55,7 +61,8 @@ export default {
       };
       this.checkIfSorted();
     },
-    shuffleData(arr) {
+    shuffleData() {
+      var arr = this.datacollection.datasets[0].data;
       // shuffle the datacollection.datasets[0].data array == arr
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -63,7 +70,7 @@ export default {
       }
 
       this.datacollection = {
-        labels: ["1", "2", "3"],
+        labels: ["1", "2", "3", "4", "5"],
         datasets: [
           {
             label: "Bogosort",
@@ -96,7 +103,7 @@ export default {
     },
     getRandomArray() {
       var arr = [];
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 5; i++) {
         var random = Math.floor(Math.random() * 100);
         arr.push(random);
       }
