@@ -44,9 +44,13 @@ export default {
     //   this.renderBarChart();
   },
   methods: {
+    // TODO somehow make this wait 1 sec between each shuffle
     shuffleUntilSorted() {
-      while (!this.sorted) {
-        this.shuffleData();
+      this.shuffleData();
+      if (!this.sorted) {
+        // recursive call after 1 secs
+
+        setTimeout(this.shuffleUntilSorted, 1000);
       }
     },
     fillRandomData() {
