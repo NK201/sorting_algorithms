@@ -3,7 +3,9 @@
     <h1>Bogosort aka Monkeysort aka Stupidsort</h1>
     <h3>Die Elemente werden in einem Array so lange gemischt bis sie zufällig sortiert sind.</h3>
 
-    <button @click="randomize()">Randomize Data</button>
+    <button @click="fillRandomData()">Randomize Data</button>
+    <button @click="shuffleData()">Shuffle Data</button>
+    <button @click="shuffleUntilSorted()">Sort it</button>
 
     <div class="sorted">
       <br>
@@ -28,16 +30,28 @@ export default {
     return {
       datacollection: null,
       sorted: false,
-      arrSize: 4
+      arrSize: 4,
+      color: "#121212"
     };
   },
   mounted() {
-    this.randomize();
+    this.fillRandomData();
+  },
+  watch: {
+    // data: function() {
+    //   this._chart.destroy();
+    //   //this.renderChart(this.data, this.options);
+    //   this.renderBarChart();
   },
   methods: {
-    randomize() {
+    shuffleUntilSorted() {
+      while (!this.sorted) {
+        this.shuffleData();
+      }
+    },
+    fillRandomData() {
       this.datacollection = {
-        labels: ["1", "2", "3", "4"],
+        labels: ["1", "2", "3", "4", "5"],
         datasets: [
           {
             label: "Bogosort",
@@ -48,6 +62,31 @@ export default {
       };
       this.checkIfSorted();
     },
+    shuffleData() {
+      var arr = this.datacollection.datasets[0].data;
+      // shuffle the datacollection.datasets[0].data array == arr
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+
+      this.datacollection = {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [
+          {
+            label: "Bogosort",
+            backgroundColor: this.datacollection.datasets[0].backgroundColor,
+            data: arr
+          }
+        ]
+      };
+      this.checkIfSorted();
+
+      console.log(this.datacollection.datasets[0].data);
+
+      // update the chart
+      //this.datacollection.update();
+    },
     getRandomInt() {
       return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     },
@@ -57,6 +96,10 @@ export default {
       for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
       }
+
+      // set current color
+      this.color = color;
+
       return color;
     },
     getRandomArray() {

@@ -5,6 +5,7 @@
     <h3>Erster Test mit Visualisierungen</h3>
 
     <button @click="randomizeData()">Randomize Data</button>
+    <button @click="bubblesortStep()">Bubblesort Step</button>
     <div class="chart">
       <bar-chart :chart-data="datacollection"></bar-chart>
     </div>
@@ -28,6 +29,9 @@ export default {
     this.randomizeData();
   },
   methods: {
+    bubblesortStep() {
+      console.log("test");
+    },
     randomizeData() {
       console.log("randomize data - Bubblesort - pressed");
       this.datacollection = {
